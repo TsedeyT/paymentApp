@@ -10,6 +10,8 @@ const {width, height} = Dimensions.get('window');
 import {color, size, fonts, buildNumber, versionNumber} from '../../config';
 import CustomIcon from '../../components/CustomIcon';
 import Button from '../../components/Button';
+import BackButton from '../../components/BackButton';
+
 import {useSelector} from 'react-redux';
 
 export default function Verify(props) {
@@ -21,9 +23,13 @@ export default function Verify(props) {
   const dueDate = props.navigation.getParam('dueDate');
   return (
     <View style={styles.container}>
+      <BackButton
+        backButton={() => props.navigation.goBack()}
+        color={color.black}
+      />
       <CustomIcon
         icon="edit"
-        size={80}
+        size={60}
         color={color.black}
         iconLibrary={'FontAwesome'}
         style={{alignItems: 'flex-end'}}
@@ -62,7 +68,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: width,
-    backgroundColor: color.neutral,
+    backgroundColor: color.white,
     paddingVertical: 80,
     paddingHorizontal: 16,
   },

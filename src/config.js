@@ -1,10 +1,6 @@
 import DeviceInfo from 'react-native-device-info';
 
-export const fonts = {
-  //   normal: {
-  //     fontFamily: 'Roboto-Medium',
-  //   },
-};
+export const fonts = {};
 
 export const color = {
   primary: '#2FD67A',

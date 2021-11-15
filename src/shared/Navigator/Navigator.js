@@ -19,7 +19,9 @@ const InvoiceStackNavigator = createStackNavigator(
   {
     headerMode: 'none',
 
-    gesturesEnabled: false,
+    defaultNavigationOptions: {
+      gesturesEnabled: false,
+    },
   },
 );
 
