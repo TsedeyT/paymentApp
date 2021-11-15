@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "903106922101",
+    "project_id": "gred-d191d",
+    "storage_bucket": "gred-d191d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903106922101:android:0688c9479e347bdcd05a3c",
+        "android_client_info": {
+          "package_name": "com.gred"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "903106922101-0cqgtqio66paimfqlrbc3lcd0oqdkes6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzMwdMz9qG_mdC7SGdOyyfbnVo7d7VG5c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "903106922101-0cqgtqio66paimfqlrbc3lcd0oqdkes6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
