@@ -9,12 +9,14 @@ import {color} from '../../config';
 import Camera from '../../screens/Camera';
 import Payment from '../../screens/Payment';
 import Verify from '../../screens/Verify';
+import SignBankID from '../../screens/SignBankID';
 
 const InvoiceStackNavigator = createStackNavigator(
   {
     Camera,
     Verify,
     Payment,
+    SignBankID,
   },
   {
     headerMode: 'none',

@@ -25,7 +25,6 @@ const textRecognition = (state = initialState, action) => {
     default:
       return state;
   }
-  console.log(state, '====Content=====');
 };
 
 export default textRecognition;

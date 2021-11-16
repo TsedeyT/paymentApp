@@ -44,23 +44,13 @@ export default function Payment(props) {
         color={color.black}
       />
       <ScrollView
-        contentContainerStyle={{
-          flexGrow: 1,
-          marginTop: 20,
-
-          width: width - 32,
-        }}
+        contentContainerStyle={styles.scrollViewStyle}
         pagingEnabled
         scrollEnabled={true}
         showsHorizontalScrollIndicator={false}
         keyboardShouldPersistTaps={'always'}>
-        <View
-          style={{
-            fontSize: size.textSize24,
-            marginBottom: size.marginBottom16,
-            fontWeight: '700',
-          }}>
-          <Text> When do you want to Pay?</Text>
+        <View style={styles.headerText}>
+          <Text style={styles.listText}>When do you want to Pay?</Text>
         </View>
 
         <RadioButtonRN
@@ -75,41 +65,16 @@ export default function Payment(props) {
             />
           }
           initial={1}
-          style={{
-            color: color.primary,
-
-            alignItems: 'center',
-            paddingHorizontal: 8,
-          }}
+          style={styles.radioButton}
           activeColor={color.primary}
           boxActiveBgColor={color.secondaryAccent}
           circleSize={24}
+          textStyle={styles.text}
         />
-
-        {/* {paymentMethodType.map(item => {
-          return (
-            <View style={styles.checkBoxWrapper}>
-              <CheckBox
-                boxType="circle"
-                disabled={false}
-                value={toggleCheckBox}
-                onChange={value => setToggleCheckBox(!value)}
-                //onValueChange={newValue => setToggleCheckBox(newValue)}
-                style={{marginRight: 16}}
-              /> 
-
-              <View style={styles.paymentItem}>
-                <Text> {item.text}</Text>
-                <Text> {item.paymentAmount}</Text>
-              </View>
-            </View>
-          );
-        })}
-        */}
       </ScrollView>
       <Button
         onClicked={() => {
-          console.log('Navigate to Bank id with', selectedValue);
+          props.navigation.navigate('SignBankID', {});
         }}
         style={styles.button}
         btnText={'Next'}
@@ -130,8 +95,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: size.textSize18,
-    marginBottom: size.marginBottom16,
-    fontWeight: '600',
+    fontWeight: '400',
   },
   checkBoxWrapper: {
     flexDirection: 'row',
@@ -141,5 +105,27 @@ const styles = StyleSheet.create({
   },
   paymentItem: {
     flexDirection: 'column',
+  },
+  scrollViewStyle: {
+    flexGrow: 1,
+    marginTop: 20,
+
+    width: width - 32,
+  },
+  headerText: {
+    fontSize: size.textSize24,
+    marginBottom: size.marginBottom16,
+    fontWeight: '700',
+  },
+  listText: {
+    fontSize: 24,
+    paddingLeft: 8,
+    fontWeight: '800',
+  },
+  radioButton: {
+    color: color.primary,
+
+    alignItems: 'center',
+    paddingHorizontal: 8,
   },
 });

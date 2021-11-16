@@ -10,10 +10,10 @@ const {width, height} = Dimensions.get('window');
 
 export default function Home() {
   const [index, setIndex] = useState(0);
-  //const [textValue, setTextValue] = useState(null);
   const [invoiceData, setInvoiceData] = useState(null);
 
   const scrollViewRef = useRef();
+
   const scrollToNext = () => {
     if (scrollViewRef.current) {
       scrollViewRef.current.scrollTo({

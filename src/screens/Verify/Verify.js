@@ -35,15 +35,7 @@ export default function Verify(props) {
         style={{alignItems: 'flex-end'}}
       />
       <View style={{marginBottom: 8}}>
-        <Text
-          style={{
-            fontSize: 24,
-            marginTop: 24,
-
-            fontWeight: '800',
-          }}>
-          Invoice
-        </Text>
+        <Text style={styles.headerText}>Invoice</Text>
       </View>
       <View style={{flex: 1, padding: 16}}>
         <Text style={styles.text}>Receiver: {paymentReceiver}</Text>
@@ -52,7 +44,6 @@ export default function Verify(props) {
       </View>
       <Button
         onClicked={() => {
-          // props.next();
           props.navigation.navigate('Payment', {
             amount,
           });
@@ -76,5 +67,11 @@ const styles = StyleSheet.create({
     fontSize: size.textSize18,
     marginBottom: size.marginBottom16,
     fontWeight: '600',
+  },
+  headerText: {
+    fontSize: 24,
+    marginTop: 24,
+    paddingLeft: 16,
+    fontWeight: '800',
   },
 });

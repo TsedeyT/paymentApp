@@ -4,6 +4,7 @@ import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import ImagePicker from 'react-native-image-crop-picker';
 import {GET_CONTENT} from '../../actions/content-actions';
 import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 import Button from '../../components/Button';
 import {color, size, fonts, buildNumber, versionNumber} from '../../config';
@@ -11,10 +12,16 @@ const {width, height} = Dimensions.get('window');
 
 function Camera(props) {
   const [images, setImages] = useState();
+  const dispatch = useDispatch();
+  const contentFromReducer = useSelector(
+    state => state.textRecognition.invoiceContent,
+  );
+  const stateContentError = useSelector(state => state.textRecognition.error);
   const onImageSelect = async media => {
     if (!media.didCancel) {
       setImages(media.uri);
-      props.getContent();
+
+      dispatch(GET_CONTENT());
       props.navigation.navigate('Verify', {
         receiver: 'Tele2',
         amount: 19157,
@@ -31,10 +38,10 @@ function Camera(props) {
     launchImageLibrary({mediaType: 'image'}, onImageSelect);
 
   useEffect(() => {
-    console.log('here', props.contentFromReducer);
-    if (props.contentFromReducer !== '' || props.error !== null) {
+    if (contentFromReducer !== '' || stateContentError !== null) {
+      console.log(contentFromReducer);
     }
-  }, [props.contentFromReducer]);
+  }, [contentFromReducer]);
   return (
     <>
       <View style={styles.container}>
@@ -60,16 +67,8 @@ function Camera(props) {
     </>
   );
 }
-const mapStateToProps = state => ({
-  contentFromReducer: state.textRecognition.invoiceContent,
-  error: state.textRecognition.error,
-});
 
-const mapDispatchToProps = dispatch => ({
-  getContent: () => dispatch(GET_CONTENT()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Camera);
+export default Camera;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
